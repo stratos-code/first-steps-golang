@@ -91,7 +91,8 @@ func example3() {
 
 func process3(c chan int) {
 	defer close(c) // close the channel when the function ends
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 10; i++ {
+		fmt.Println("Capacity:", cap(c), "Length:", len(c), "- Sending:", i)
 		c <- i
 	}
 	fmt.Println("Process 3 ended")
