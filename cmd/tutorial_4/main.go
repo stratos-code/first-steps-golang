@@ -51,7 +51,7 @@ func main() {
 
 	// make function
 	intSlice3 := make([]int32, 5, 10) // length 5, capacity 10
-	fmt.Println(intSlice3)
+	fmt.Println(intSlice3)            // [0 0 0 0 0]
 	fmt.Printf("Length: %d, Capacity: %d\n", len(intSlice3), cap(intSlice3))
 	intSlice3[0] = 100
 	intSlice3[1] = 200
