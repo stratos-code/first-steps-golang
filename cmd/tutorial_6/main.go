@@ -26,8 +26,17 @@ func (e electricEngine) milesLeft() uint8 {
 	return e.mpkwh * e.kwh
 }
 
+// func (e gasEngine) milesLeftFloat() float64 {
+// 	return float64(e.mpg) * float64(e.gallons)
+// }
+
+// func (e electricEngine) milesLeftFloat() float64 {
+// 	return float64(e.mpkwh) * float64(e.kwh)
+// }
+
 type engine interface {
 	milesLeft() uint8
+	// milesLeftFloat() float64
 }
 
 func canMakeIt(e engine, miles uint8) {
@@ -59,3 +68,8 @@ func main() {
 	canMakeIt(myEngine, 80)
 	canMakeIt(electricEngine{3, 30, owner{"Eve"}}, 80)
 }
+
+// Forzar verificación en tiempo de compilación
+// de que los tipos cumplen con la interfaz
+var _ engine = (*gasEngine)(nil)
+var _ engine = (*electricEngine)(nil)
